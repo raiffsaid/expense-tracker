@@ -59,25 +59,23 @@ export default function App() {
   return (
     <>
       <GlobalStyle />
+      
+      <C.Header>
+        <C.HeaderText>Sistema Financeiro</C.HeaderText>
+      </C.Header>
 
-      <C.Container>
-        <C.Header>
-          <C.HeaderText>Sistema Financeiro</C.HeaderText>
-        </C.Header>
+      <C.Body>
+        <InfoArea 
+          currentMonth={currentMonth} 
+          onMonthChange={handleMonthChange} 
+          income={income}
+          expense={expense}
+        />
 
-        <C.Body>
-          <InfoArea 
-            currentMonth={currentMonth} 
-            onMonthChange={handleMonthChange} 
-            income={income}
-            expense={expense}
-          />
+        <InputArea onAdd={handleAddItem} />
 
-          <InputArea onAdd={handleAddItem} />
-
-          <TableArea list={filteredList} onDeleteItem={handleDeleteItem} />
-        </C.Body>
-      </C.Container>
+        <TableArea list={filteredList} onDeleteItem={handleDeleteItem} />
+      </C.Body>
     </>
   );
 }
