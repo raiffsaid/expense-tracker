@@ -40,6 +40,11 @@ public class UserService {
         return new UserDTO(entity);
     }
 
+    public void delete(String id) {
+        getEntityById(id);
+        userRepository.deleteById(id);
+    }
+
     private void copyDtoToEntity(UserDTO dto, User entity) {
         entity.setName(dto.getName());
         entity.setEmail(dto.getEmail());
