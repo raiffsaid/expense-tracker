@@ -1,5 +1,6 @@
 package com.raibratech.expensetracker.services;
 
+import com.raibratech.expensetracker.models.dto.ItemDTO;
 import com.raibratech.expensetracker.models.dto.UserDTO;
 import com.raibratech.expensetracker.models.entities.User;
 import com.raibratech.expensetracker.repositories.UserRepository;
@@ -43,6 +44,11 @@ public class UserService {
     public void delete(String id) {
         getEntityById(id);
         userRepository.deleteById(id);
+    }
+
+    public List<ItemDTO> getUserItems(String id) {
+        User user = getEntityById(id);
+        return user.getItems().stream().map(ItemDTO::new).collect(Collectors.toList());
     }
 
     private void copyDtoToEntity(UserDTO dto, User entity) {

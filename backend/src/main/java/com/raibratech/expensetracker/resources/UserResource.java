@@ -1,5 +1,6 @@
 package com.raibratech.expensetracker.resources;
 
+import com.raibratech.expensetracker.models.dto.ItemDTO;
 import com.raibratech.expensetracker.models.dto.UserDTO;
 import com.raibratech.expensetracker.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,11 @@ public class UserResource {
     public ResponseEntity<UserDTO> delete(@PathVariable String id) {
         userService.delete(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping(value = "/{id}/items")
+    public ResponseEntity<List<ItemDTO>> getUserItems(@PathVariable String id) {
+        List<ItemDTO> list = userService.getUserItems(id);
+        return ResponseEntity.ok(list);
     }
 }
