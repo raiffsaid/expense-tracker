@@ -21,7 +21,7 @@ export default function App() {
   const [expense, setExpense] = useState(0);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/users/63b618b18494ac5958eec770/items").then((response) => {
+    axios.get("http://localhost:8080/users/63b62696789e63565bbac780/items").then((response) => {
       setList(response.data);
     })
   }, [currentMonth]);
