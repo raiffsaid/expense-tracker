@@ -2,6 +2,7 @@ package com.raibratech.expensetracker.models.dto;
 
 import com.raibratech.expensetracker.models.embedded.Author;
 import com.raibratech.expensetracker.models.entities.Item;
+import com.raibratech.expensetracker.models.entities.User;
 
 import java.time.LocalDate;
 
@@ -11,17 +12,17 @@ public class ItemDTO {
     private String category;
     private String title;
     private Double value;
-    private Author author;
+    private String userId;
 
     public ItemDTO() {}
 
-    public ItemDTO(String id, LocalDate date, String category, String title, Double value, Author author) {
+    public ItemDTO(String id, LocalDate date, String category, String title, Double value, String userId) {
         this.id = id;
         this.date = date;
         this.category = category;
         this.title = title;
         this.value = value;
-        this.author = author;
+        this.userId = userId;
     }
 
     public ItemDTO(Item entity) {
@@ -30,7 +31,7 @@ public class ItemDTO {
         this.category = entity.getCategory();
         this.title = entity.getTitle();
         this.value = entity.getValue();
-        this.author = entity.getAuthor();
+        this.userId = entity.getUserId();
     }
 
     public String getId() {
@@ -73,11 +74,11 @@ public class ItemDTO {
         this.value = value;
     }
 
-    public Author getAuthor() {
-        return author;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

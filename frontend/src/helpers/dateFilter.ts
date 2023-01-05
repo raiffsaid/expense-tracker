@@ -5,14 +5,14 @@ export const getCurrentMonth = () => {
   return `${now.getFullYear()}-${now.getMonth()+1}`;
 }
 
-export const filterListByMonth = (list: Item[], date: string): any[] => {
+export const filterListByMonth = (list: Item[], date: string): Item[] => {
   let newList: Item[] = [];
   let [year, month] = date.split('-');
 
   for (let i in list) {
     if (
-      list[i].date.getFullYear() === parseInt(year) && 
-      (list[i].date.getMonth() + 1) === parseInt(month)
+      new Date(list[i].date).getUTCFullYear() === parseInt(year) && 
+      (new Date(list[i].date).getUTCMonth() + 1) === parseInt(month)
     ) {
       newList.push(list[i]);
     }
@@ -21,15 +21,11 @@ export const filterListByMonth = (list: Item[], date: string): any[] => {
   return newList;
 }
 
-export const formatDate = (date: Date): string => {
-  let year = date.getFullYear();
-  let month = date.getMonth() + 1;
-  let day = date.getDate();
+export const formatDate = (date: string): string => {
+  let [year, month, day] = date.split('-');
 
-  return `${addZeroToDate(day)}/${addZeroToDate(month)}/${year}`;
+  return [month, day, year].join('/');
 }
-
-const addZeroToDate = (n: number): string => n < 10 ? `0${n}` : `${n}`;
 
 export const formatCurrentMonth = (currentMonth: string): string => {
   let [year, month] = currentMonth.split('-');

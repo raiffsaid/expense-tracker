@@ -5,13 +5,13 @@ import { categories } from "../../data/categories";
 import { Trash } from "phosphor-react";
 
 type Props = {
-  onDeleteItem: (arg: Item) => void;
+  onDeleteItem: (arg: string) => void;
   item: Item;
 }
 
 export function TableItem({ item, onDeleteItem }: Props) {
   const handleDeleteItem = () => {
-    onDeleteItem(item);
+    item?.id ? (onDeleteItem(item?.id)) : null;
   };
 
   return (

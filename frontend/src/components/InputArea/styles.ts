@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background-color: #FFF;
-  box-shadow: 0px 0px 5px #CCC;
+  background-color: #70aeea;
+  box-shadow: 0 0 5px #9ecbf2;
   border-radius: 10px;
   padding: 20px;
   margin-top: 20px;
@@ -21,6 +21,7 @@ export const InputLabel = styled.label`
 export const InputTitle = styled.div`
   font-weight: bold;
   margin-bottom: 5px;
+  color: #f1f7fd;
 `;
 export const Input = styled.input`
   width: 100%;
@@ -28,6 +29,7 @@ export const Input = styled.input`
   padding: 0 5px;
   border: 1px solid lightblue;
   border-radius: 5px;
+  background-color: #c6dff7;
 `;
 export const Select = styled.select`
   width: 100%;
@@ -35,20 +37,22 @@ export const Select = styled.select`
   padding: 0 5px;
   border: 1px solid lightblue;
   border-radius: 5px;
+  background-color: #c6dff7;
 `;
 export const Button = styled.button`
   width: 100%;
   height: 30px;
   padding: 0 5px;
-  border: 1px solid lightblue;
+  border: 1px solid #c6dff7;
   border-radius: 5px;
-  background-color: lightblue;
-  color: black;
+  background-color: #c6dff7;
+  color: #000;
   cursor: pointer;
-  transition: color 0.3s, background-color 0.3s;
+  transition: color 0.3s, border 0.3s, background-color 0.3s;
 
   &:hover {
-      background-color: blue;
-      color: white;
+      background-color: #2d4fa0;
+      color: #fff;
+      border: 1px solid #2d4fa0;
   }
 `;

@@ -1,11 +1,9 @@
 package com.raibratech.expensetracker.services;
 
-import com.raibratech.expensetracker.models.dto.ItemDTO;
 import com.raibratech.expensetracker.models.dto.UserDTO;
 import com.raibratech.expensetracker.models.entities.User;
 import com.raibratech.expensetracker.repositories.UserRepository;
 import com.raibratech.expensetracker.services.exceptions.ResourceNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,8 +12,11 @@ import java.util.stream.Collectors;
 
 @Service
 public class UserService {
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public List<UserDTO> findAll() {
         List<User> list = userRepository.findAll();
@@ -29,14 +30,14 @@ public class UserService {
 
     public UserDTO insert(UserDTO dto) {
         User entity = new User();
-        copyDtoToEntity(dto, entity);
+        copyUserDtoToEntity(dto, entity);
         entity = userRepository.insert(entity);
         return new UserDTO(entity);
     }
 
     public UserDTO update(String id, UserDTO dto) {
         User entity = getEntityById(id);
-        copyDtoToEntity(dto, entity);
+        copyUserDtoToEntity(dto, entity);
         entity = userRepository.save(entity);
         return new UserDTO(entity);
     }
@@ -46,12 +47,7 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public List<ItemDTO> getUserItems(String id) {
-        User user = getEntityById(id);
-        return user.getItems().stream().map(ItemDTO::new).collect(Collectors.toList());
-    }
-
-    private void copyDtoToEntity(UserDTO dto, User entity) {
+    private void copyUserDtoToEntity(UserDTO dto, User entity) {
         entity.setName(dto.getName());
         entity.setEmail(dto.getEmail());
     }
