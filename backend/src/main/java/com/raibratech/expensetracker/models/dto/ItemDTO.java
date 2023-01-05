@@ -1,8 +1,6 @@
 package com.raibratech.expensetracker.models.dto;
 
-import com.raibratech.expensetracker.models.embedded.Author;
 import com.raibratech.expensetracker.models.entities.Item;
-import com.raibratech.expensetracker.models.entities.User;
 
 import java.time.LocalDate;
 
