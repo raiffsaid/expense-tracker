@@ -3,7 +3,7 @@ import { Item } from "../../types/Item";
 import { TableItem } from "../TableItem";
 
 type Props = {
-  onDeleteItem: (arg: Item) => void;
+  onDeleteItem: (arg: string) => void;
   list: any[];
 }
 

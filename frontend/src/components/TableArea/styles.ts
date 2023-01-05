@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Table = styled.table`
+  background-color: #70aeea;
+  box-shadow: 0 0 5px #9ecbf2;
   width: 100%;
-  background-color: #fff;
   padding: 20px;
-  box-shadow: 0 0 5px #ccc;
   border-radius: 10px;
   margin-top: 20px;
 `;

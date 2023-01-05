@@ -2,7 +2,9 @@ package com.raibratech.expensetracker.models.entities;
 
 import com.raibratech.expensetracker.models.embedded.Author;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.time.LocalDate;
 
@@ -14,17 +16,17 @@ public class Item {
     private String category;
     private String title;
     private Double value;
-    private Author author;
+    private String userId;
 
     public Item() {}
 
-    public Item(String id, LocalDate date, String category, String title, Double value, Author author) {
+    public Item(String id, LocalDate date, String category, String title, Double value, String userId) {
         this.id = id;
         this.date = date;
         this.category = category;
         this.title = title;
         this.value = value;
-        this.author = author;
+        this.userId = userId;
     }
 
     public String getId() {
@@ -67,11 +69,11 @@ public class Item {
         this.value = value;
     }
 
-    public Author getAuthor() {
-        return author;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

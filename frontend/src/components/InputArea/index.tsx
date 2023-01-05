@@ -37,10 +37,11 @@ export function InputArea({ onAdd }: Props) {
       alert(errors.join("\n"));
     } else {
       onAdd({
-        date: newDateAdjusted(dateField),
+        date: dateField,
         category: categoryField,
         title: titleField,
-        value: valueField
+        value: valueField,
+        userId: '63b62696789e63565bbac780'
       });
       clearFields();
     }

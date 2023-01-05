@@ -27,23 +27,19 @@ public class TestConfig {
         userRepository.deleteAll();
         itemRepository.deleteAll();
 
-        User lorraine = new User(null, "Lorraine Coêlho", "lorrainefcoelho@gmail.com");
         User raiff = new User(null, "Raiff Said", "raiff.said@gmail.com");
 
-        userRepository.saveAll(Arrays.asList(lorraine, raiff));
+        userRepository.save(raiff);
 
-        Item item1 = new Item(null, LocalDate.parse("2022-12-07"), "income", "Salário Lorraine", 3500.00, new Author(lorraine));
-        Item item2 = new Item(null, LocalDate.parse("2022-12-20"), "expense", "Compra Lorraine", 4000.00, new Author(lorraine));
+//        Item item1 = new Item(null, LocalDate.now(), "income", "Salário", 5000.00, new Author(raiff));
+//        Item item2 = new Item(null, LocalDate.now(), "expense", "Compra 1", 150.00, new Author(raiff));
+//        Item item3 = new Item(null, LocalDate.now(), "expense", "Compra 2", 2753.78, new Author(raiff));
+//        Item item4 = new Item(null, LocalDate.parse("2023-02-03"), "expense", "Compra 3", 1000.00, new Author(raiff));
 
-        Item item3 = new Item(null, LocalDate.parse("2022-12-01"), "income", "Salário", 5000.00, new Author(raiff));
-        Item item4 = new Item(null, LocalDate.parse("2022-12-05"), "expense", "Compra 1", 150.00, new Author(raiff));
-        Item item5 = new Item(null, LocalDate.parse("2022-12-12"), "expense", "Compra 2", 2753.78, new Author(raiff));
-
-        itemRepository.saveAll(Arrays.asList(item1, item2, item3, item4, item5));
-
-        lorraine.getItems().addAll(Arrays.asList(item1, item2));
-        raiff.getItems().addAll(Arrays.asList(item3, item4, item5));
-
-        userRepository.saveAll(Arrays.asList(lorraine, raiff));
+//        itemRepository.saveAll(Arrays.asList(item1, item2, item3, item4));
+//
+//        raiff.getItems().addAll(Arrays.asList(item1, item2, item3, item4));
+//
+//        userRepository.save(raiff);
     }
 }
