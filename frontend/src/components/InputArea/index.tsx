@@ -41,7 +41,7 @@ export function InputArea({ onAdd }: Props) {
         category: categoryField,
         title: titleField,
         value: valueField,
-        userId: '63b62696789e63565bbac780'
+        userId: '63b72b3f93a76f001c0fbfc8'
       });
       clearFields();
     }

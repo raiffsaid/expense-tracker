@@ -3,7 +3,6 @@ import GlobalStyle from "./globalStyles";
 import * as C from "./App.styles";
 
 import { Item } from "./types/Item";
-import { Category } from "./types/Category";
 
 import { categories } from "./data/categories";
 import axios from 'axios';
@@ -21,7 +20,7 @@ export default function App() {
   const [expense, setExpense] = useState(0);
 
   useEffect(() => {
-    axios.get("http://localhost:8080/users/63b62696789e63565bbac780/items").then((response) => {
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/users/63b72b3f93a76f001c0fbfc8/items`).then((response) => {
       setList(response.data);
     })
   }, [currentMonth]);
@@ -49,25 +48,17 @@ export default function App() {
   }
  
   const handleAddItem = async (item: Item) => {
-    await axios.post('http://localhost:8080/users/63b62696789e63565bbac780/items', item);
-    await axios.get("http://localhost:8080/users/63b62696789e63565bbac780/items").then((response) => {
+    await axios.post(`${import.meta.env.VITE_BACKEND_URL}/users/63b72b3f93a76f001c0fbfc8/items`, item);
+    await axios.get(`${import.meta.env.VITE_BACKEND_URL}/users/63b72b3f93a76f001c0fbfc8/items`).then((response) => {
       setList(response.data);
     });
-    // let newList = [...list];
-    // newList.push(item);
-    // setList(newList);
   }
 
   const handleDeleteItem = async (itemId: string) => {
-    await axios.delete(`http://localhost:8080/users/63b62696789e63565bbac780/items/${itemId}`);
-    await axios.get("http://localhost:8080/users/63b62696789e63565bbac780/items").then((response) => {
+    await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/users/63b72b3f93a76f001c0fbfc8/items/${itemId}`);
+    await axios.get(`${import.meta.env.VITE_BACKEND_URL}/users/63b72b3f93a76f001c0fbfc8/items`).then((response) => {
       setList(response.data);
     });
-    // const listWithoutDeletedItem = list.filter(item => {
-    //   return item !== deletedItem;
-    // });
-    
-    // setList(listWithoutDeletedItem);
   }
 
   return (
