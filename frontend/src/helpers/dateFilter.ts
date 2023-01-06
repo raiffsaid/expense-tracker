@@ -24,7 +24,7 @@ export const filterListByMonth = (list: Item[], date: string): Item[] => {
 export const formatDate = (date: string): string => {
   let [year, month, day] = date.split('-');
 
-  return [month, day, year].join('/');
+  return [day, month, year].join('/');
 }
 
 export const formatCurrentMonth = (currentMonth: string): string => {

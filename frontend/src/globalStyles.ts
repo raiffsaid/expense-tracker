@@ -7,6 +7,10 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  html {
+    background-color: #c6dff7;
+  }
+
   :focus {
     outline: transparent;
   }
