@@ -16,7 +16,7 @@ export function TableArea({ list, onDeleteItem }: Props) {
           <C.TableHeadColumn width={130}>Categoria</C.TableHeadColumn>
           <C.TableHeadColumn>Título</C.TableHeadColumn>
           <C.TableHeadColumn width={150}>Valor</C.TableHeadColumn>
-          <C.TableHeadColumn width={50}></C.TableHeadColumn>
+          <C.TableHeadColumn width={50}>Excluir</C.TableHeadColumn>
         </tr>
       </thead>
       <tbody>

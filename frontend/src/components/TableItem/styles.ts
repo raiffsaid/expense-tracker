@@ -8,6 +8,10 @@ export const TableLine = styled.tr`
 
 export const TableColumn = styled.td`
   padding: 10px 15px;
+
+  &:last-child {
+    text-align: center;
+  }
 `;
 
 export const Category = styled.div<{ color: string }>`
