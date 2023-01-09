@@ -25,7 +25,7 @@ public class ItemService {
     }
 
     public List<ItemDTO> getItemsByUserId(String id) {
-        List<Item> items = itemRepository.findItemsByUserId(id);
+        List<Item> items = itemRepository.findItemsByUserIdOrderByDateAsc(id);
         return items.stream().map(ItemDTO::new).collect(Collectors.toList());
     }
 

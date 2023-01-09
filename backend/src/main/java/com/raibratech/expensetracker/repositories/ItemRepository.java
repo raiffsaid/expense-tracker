@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface ItemRepository extends MongoRepository<Item, String> {
-    List<Item> findItemsByUserId(String userId);
+    List<Item> findItemsByUserIdOrderByDateAsc(String userId);
 }
